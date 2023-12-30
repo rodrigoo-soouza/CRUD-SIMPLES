@@ -1,9 +1,11 @@
-﻿namespace SistemaTarefas.Models;
+﻿using SistemaTarefas.Enum;
+
+namespace SistemaTarefas.Models;
 
 public class TarefaModel
 {
     public int Id { get; set; }
     public string? Nome { get; set; }
     public string? Descricao { get; set; }
-    public string? Status { get; set;}
+    public StatusTarefa Status { get; set;}
 }
