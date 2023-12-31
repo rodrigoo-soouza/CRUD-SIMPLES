@@ -39,4 +39,22 @@ public class TarefaController : Controller
 
         return Ok(tarefa);
     }
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult<TarefaModel>> Atualizar([FromBody] TarefaModel tarefaModel, int id)
+    {
+        tarefaModel.Id = id;
+        TarefaModel tarefa = await _tarefaRepositorio.Atualizar(tarefaModel, id);
+
+        return Ok(tarefa);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<TarefaModel>> Apagar(int id)
+    {
+        bool apagado = await _tarefaRepositorio.Apagar(id);
+
+        return Ok(apagado);
+    }
+
 }
